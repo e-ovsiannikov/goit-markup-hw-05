@@ -113,7 +113,7 @@ body{
     letter-spacing: 0.02em;
     margin-right: 50px;
     color: var(--title-color);
-    transition: color 250ms linear ;}
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) ;}
 
 .contact-link{
     color:var(--text-color);
@@ -184,11 +184,13 @@ body{
     cursor: pointer;
     margin: 0 auto;
     display: block;
-    transition: color 250ms linear;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
+
 .hero-btn:hover,
 .hero-btn:focus{
-    background: var(--btn-site-color);
+    background-color: var(--btn-site-color);
 }  
 /* ==========END HERO=========== */
 
@@ -311,6 +313,10 @@ body{
     width: 44px;
     height: 44px;
     fill: #afb1b8;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
 }
 .social-link:hover,
 .social-link:focus {
@@ -341,6 +347,10 @@ body{
     border: 1px solid #afb1b8;
     border-radius: 4px;
     fill: #AFB1B8;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
   }
   
   .client-link:hover,
@@ -387,6 +397,8 @@ body{
 .footer-contact-link{
     line-height: 1.71;
     color: rgba(255, 255, 255, 0.6);
+    
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
 }
 .footer-contact-link:hover,
 .footer-contact-link:focus{
@@ -423,6 +435,9 @@ body{
     fill: var(--footer-color);
     border-radius: 50% 50%;
     background: rgba(255, 255, 255, 0.1);
+    
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
   }
   .foot-social-link:hover,
   .foot-social-link:focus {
@@ -464,6 +479,10 @@ body{
     border-radius: 4px;
     padding: 6px 22px;
     border: none;
+    
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
 }
 .btn-list:hover,
 .btn-list:focus{
@@ -500,6 +519,11 @@ body{
 .project-list-img-wrapper{
     position: relative;
     overflow: hidden;   
+}
+
+.project-item-link{
+    display: block;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), 250ms cubic-bezier(0.4, 0, 0.2, 1)  ;
 }
 
 .project-item-link:hover,
@@ -556,3 +580,45 @@ body{
     color: var(--text-color);
 }
 /* ===============END PORTFOLIO PROJECT================= */
+
+
+/* =======================BACKDROP======================== */
+.backdrop{
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.2);
+
+transition: opacity 250ms linear,
+visability 250 linear;
+}
+
+.modal{
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    width: 528px; 
+    height: 580px; 
+    background-color: #fff; 
+    transform: translate(-50%, -50%);
+}
+.close-btn{ 
+    position: absolute; 
+    top: 8px; 
+    right: 8px; 
+    height:30px; 
+    width: 30px; 
+    border-radius: 50%; 
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    background-color: transparent; 
+    cursor: pointer; 
+    padding: 0; 
+}
+
+.is-hidden{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
